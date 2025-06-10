@@ -5,38 +5,32 @@
 #include "rclcpp/rclcpp.hpp"
 
 class VideoSender : public rclcpp::Node {
+private:
+    std::string pipeline;
+    std::thread video_thread;
+
+    void streaming()
+    {
+        execl("/bin/bash", "bash", "-c", pipeline.c_str(), nullptr);
+    }
+
 public:
     VideoSender(const std::string& receiver_ip) : Node("video_sender")
     {
-        std::cout << "Запуск отправителя";
         pipeline = "gst-launch-1.0 v4l2src device=/dev/video0 ! "
                    "videoconvert ! x264enc tune=zerolatency key-int-max=15 ! "
                    "video/x-h264,profile=main ! rtph264pay pt=96 config-interval=-1 ! "
                    "udpsink host=" + receiver_ip + " port=5000";
     
-        pid_t pid = fork();
-        
-        if (pid == 0) {
-            execl("/bin/bash", "bash", "-c", pipeline.c_str(), nullptr);
-            exit(1);
-        } else if (pid > 0) {
-            child_pid = pid;
-        } else {
-            std::cout << "Fork failed" << std::endl;
-        }
+        video_thread = std::thread([this]() { this->streaming(); });
     }
-
+   
     ~VideoSender() 
     {
-        if (child_pid > 0) {
-            kill(child_pid, SIGTERM);
-            waitpid(child_pid, nullptr, 0);
+        if (video_thread.joinable()) {
+            video_thread.join();
         }
     }
-
-private:
-    std::string pipeline;
-    pid_t child_pid;
 };
 
 int main(int argc, char * argv[])
