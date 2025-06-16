@@ -1,7 +1,4 @@
 #include <memory>
-#include <cstdlib>
-#include <signal.h>
-#include <sys/wait.h>
 #include <opencv2/core.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
@@ -19,6 +16,8 @@ private:
     {
         auto cap = cv::VideoCapture(pipeline, cv::CAP_GSTREAMER);
 
+        std::vector<int> marker_ids;
+        std::vector<std::vector<cv::Point2f>> marker_corners;
         cv::Ptr<cv::aruco::Dictionary> aruco_dict = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_ARUCO_ORIGINAL);
         cv::Ptr<cv::aruco::DetectorParameters> parameters = cv::aruco::DetectorParameters::create();
 
@@ -27,9 +26,6 @@ private:
             cv::Mat frame;
             
             cap >> frame;
-
-            std::vector<int> marker_ids;
-            std::vector<std::vector<cv::Point2f>> marker_corners;
             
             cv::aruco::detectMarkers(frame, aruco_dict, marker_corners, marker_ids, parameters);
             cv::aruco::drawDetectedMarkers(frame, marker_corners, marker_ids);
@@ -38,10 +34,11 @@ private:
             if (cv::waitKey(1) == 27) {
                 break;
             }
-
-            cap.release();
         }
+        cap.release();
+        cv::destroyAllWindows();
     }
+
 
 public:
     ArUcoDetector() : Node("aruco_detector")
