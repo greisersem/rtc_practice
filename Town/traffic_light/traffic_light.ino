@@ -26,9 +26,11 @@ void loop()
 
         if (id == device_id) {
             handle_command(cmd);
+            set_send();
             Serial.print(id);
             Serial.print(cmd);
             Serial.println("OK");
+            set_receive();
         }
     }
 }
@@ -57,14 +59,14 @@ void clear_lights()
 }
 
 
-void send()
+void set_send()
 {
     digitalWrite(MAX485_CONTROL_PIN, HIGH);
     delay(10);
 }
 
 
-void receive()
+void set_receive()
 {
     digitalWrite(MAX485_CONTROL_PIN, LOW);
     delay(10);

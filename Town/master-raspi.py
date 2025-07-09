@@ -138,7 +138,7 @@ class RS485Controller:
 
     def receive_loop(self):
         while True:
-            if self.ser.in_waiting > 0:
+            if self.ser.in_waiting >= 2:
                 incoming = self.ser.readline().decode().strip()
                 print(f"[RECV] {incoming}")
             time.sleep(0.1)
