@@ -13,23 +13,27 @@ void setup()
     pinMode(GREEN_PIN, OUTPUT);
     pinMode(MAX485_CONTROL_PIN, OUTPUT);
     Serial.begin(9600);
+    set_receive();
  
     delay(10);
 }
 
 
-void loop()
-{
+void loop() {
     if (Serial.available() >= 2) {
         int id = Serial.read() - '0';
         int cmd = Serial.read() - '0';
-
+    
         if (id == device_id) {
             handle_command(cmd);
+
+            String response = "ID: " + String(id) + ", CMD: " + String(cmd) + ", OK";
+            
             set_send();
-            Serial.print(id);
-            Serial.print(cmd);
-            Serial.println("OK");
+            
+            Serial.println(response);
+            Serial.flush();
+            
             set_receive();
         }
     }
@@ -62,12 +66,12 @@ void clear_lights()
 void set_send()
 {
     digitalWrite(MAX485_CONTROL_PIN, HIGH);
-    delay(10);
+    delay(50);
 }
 
 
 void set_receive()
 {
     digitalWrite(MAX485_CONTROL_PIN, LOW);
-    delay(10);
+    delay(50);
 }
