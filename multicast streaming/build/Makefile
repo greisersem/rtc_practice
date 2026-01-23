@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/greisersem/Desktop/multicast streaming"
+CMAKE_SOURCE_DIR = "/home/greisersem/Desktop/rtc_practice/multicast streaming"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/greisersem/Desktop/multicast streaming/build"
+CMAKE_BINARY_DIR = "/home/greisersem/Desktop/rtc_practice/multicast streaming/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/greisersem/Desktop/multicast streaming/build/CMakeFiles" "/home/greisersem/Desktop/multicast streaming/build//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/greisersem/Desktop/rtc_practice/multicast streaming/build/CMakeFiles" "/home/greisersem/Desktop/rtc_practice/multicast streaming/build//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/greisersem/Desktop/multicast streaming/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/greisersem/Desktop/rtc_practice/multicast streaming/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -129,6 +129,43 @@ streaming/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/streaming.dir/build.make CMakeFiles/streaming.dir/build
 .PHONY : streaming/fast
 
+#=============================================================================
+# Target rules for targets named ip_streaming
+
+# Build rule for target.
+ip_streaming: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ip_streaming
+.PHONY : ip_streaming
+
+# fast build rule for target.
+ip_streaming/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_streaming.dir/build.make CMakeFiles/ip_streaming.dir/build
+.PHONY : ip_streaming/fast
+
+ip_cam_to_multicast.o: ip_cam_to_multicast.cpp.o
+.PHONY : ip_cam_to_multicast.o
+
+# target to build an object file
+ip_cam_to_multicast.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_streaming.dir/build.make CMakeFiles/ip_streaming.dir/ip_cam_to_multicast.cpp.o
+.PHONY : ip_cam_to_multicast.cpp.o
+
+ip_cam_to_multicast.i: ip_cam_to_multicast.cpp.i
+.PHONY : ip_cam_to_multicast.i
+
+# target to preprocess a source file
+ip_cam_to_multicast.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_streaming.dir/build.make CMakeFiles/ip_streaming.dir/ip_cam_to_multicast.cpp.i
+.PHONY : ip_cam_to_multicast.cpp.i
+
+ip_cam_to_multicast.s: ip_cam_to_multicast.cpp.s
+.PHONY : ip_cam_to_multicast.s
+
+# target to generate assembly for a file
+ip_cam_to_multicast.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ip_streaming.dir/build.make CMakeFiles/ip_streaming.dir/ip_cam_to_multicast.cpp.s
+.PHONY : ip_cam_to_multicast.cpp.s
+
 multicast_streamer.o: multicast_streamer.cpp.o
 .PHONY : multicast_streamer.o
 
@@ -161,7 +198,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... ip_streaming"
 	@echo "... streaming"
+	@echo "... ip_cam_to_multicast.o"
+	@echo "... ip_cam_to_multicast.i"
+	@echo "... ip_cam_to_multicast.s"
 	@echo "... multicast_streamer.o"
 	@echo "... multicast_streamer.i"
 	@echo "... multicast_streamer.s"

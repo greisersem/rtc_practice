@@ -15,7 +15,7 @@ int main() {
     std::string pipeline =
         "appsrc ! "
         "videoconvert ! "
-        "x264enc tune=zerolatency bitrate=800 speed-preset=ultrafast ! "
+        "x264enc tune=zerolatency bitrate=1000 speed-preset=ultrafast ! "
         "rtph264pay ! "
         "udpsink host=239.255.0.1 port=5000 auto-multicast=true";
 

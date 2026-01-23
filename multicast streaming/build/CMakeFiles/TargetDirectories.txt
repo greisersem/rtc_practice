@@ -1,3 +1,4 @@
-/home/greisersem/Desktop/multicast streaming/build/CMakeFiles/streaming.dir
-/home/greisersem/Desktop/multicast streaming/build/CMakeFiles/edit_cache.dir
-/home/greisersem/Desktop/multicast streaming/build/CMakeFiles/rebuild_cache.dir
+/home/greisersem/Desktop/rtc_practice/multicast streaming/build/CMakeFiles/streaming.dir
+/home/greisersem/Desktop/rtc_practice/multicast streaming/build/CMakeFiles/ip_streaming.dir
+/home/greisersem/Desktop/rtc_practice/multicast streaming/build/CMakeFiles/edit_cache.dir
+/home/greisersem/Desktop/rtc_practice/multicast streaming/build/CMakeFiles/rebuild_cache.dir

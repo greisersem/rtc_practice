@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/greisersem/Desktop/rtc_practice/multicast streaming/multicast_streamer.cpp" "CMakeFiles/streaming.dir/multicast_streamer.cpp.o" "gcc" "CMakeFiles/streaming.dir/multicast_streamer.cpp.o.d"
-  "" "streaming" "gcc" "CMakeFiles/streaming.dir/link.d"
+  "/home/greisersem/Desktop/rtc_practice/multicast streaming/ip_cam_to_multicast.cpp" "CMakeFiles/ip_streaming.dir/ip_cam_to_multicast.cpp.o" "gcc" "CMakeFiles/ip_streaming.dir/ip_cam_to_multicast.cpp.o.d"
+  "" "ip_streaming" "gcc" "CMakeFiles/ip_streaming.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

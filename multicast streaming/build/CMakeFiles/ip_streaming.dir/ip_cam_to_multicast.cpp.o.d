@@ -1,5 +1,5 @@
-CMakeFiles/streaming.dir/multicast_streamer.cpp.o: \
- /home/greisersem/Desktop/rtc_practice/multicast\ streaming/multicast_streamer.cpp \
+CMakeFiles/ip_streaming.dir/ip_cam_to_multicast.cpp.o: \
+ /home/greisersem/Desktop/rtc_practice/multicast\ streaming/ip_cam_to_multicast.cpp \
  /usr/include/stdc-predef.h /usr/include/opencv4/opencv2/opencv.hpp \
  /usr/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/include/opencv4/opencv2/core.hpp \
