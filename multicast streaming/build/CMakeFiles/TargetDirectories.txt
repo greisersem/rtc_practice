@@ -1,0 +1,3 @@
+/home/greisersem/Desktop/multicast streaming/build/CMakeFiles/streaming.dir
+/home/greisersem/Desktop/multicast streaming/build/CMakeFiles/edit_cache.dir
+/home/greisersem/Desktop/multicast streaming/build/CMakeFiles/rebuild_cache.dir
