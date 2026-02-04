@@ -3,7 +3,7 @@
 #define GREEN_PIN 5 
 #define MAX485_CONTROL_PIN 2
 
-const int device_id = 1;
+const int device_id = 3;
 
 
 void setup()
@@ -23,18 +23,21 @@ void loop() {
     if (Serial.available() >= 2) {
         int id = Serial.read() - '0';
         int cmd = Serial.read() - '0';
-    
+
+        String response = "ID: " + String(id) + ", CMD: " + String(cmd) + ", OK";
+        Serial.println(response);
+
         if (id == device_id) {
             handle_command(cmd);
 
             String response = "ID: " + String(id) + ", CMD: " + String(cmd) + ", OK";
             
-            set_send();
-            
-            Serial.println(response);
-            Serial.flush();
-            
-            set_receive();
+//            set_send();
+//            
+//            Serial.println(response);
+//            Serial.flush();
+//            
+//            set_receive();
         }
     }
 }
@@ -63,11 +66,11 @@ void clear_lights()
 }
 
 
-void set_send()
-{
-    digitalWrite(MAX485_CONTROL_PIN, HIGH);
-    delay(50);
-}
+//void set_send()
+//{
+//    digitalWrite(MAX485_CONTROL_PIN, HIGH);
+//    delay(50);
+//}
 
 
 void set_receive()

@@ -2,7 +2,7 @@ import time
 import serial
 import RPi.GPIO as GPIO
 from tkinter import Tk, Label, Button
-import threading
+import minimalmodbus
 
 
 class TrafficLight:
